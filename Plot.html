@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="StyleSheet2.css">
+    <link rel="stylesheet" type="text/css" href="StyleSheet_web_ass2.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Archivo+Narrow');
+    </style>
+    <meta charset="utf-8" />
+    <meta name="keywords" content="about us, contact, adress, where can you find us, Plot">
+    <meta name="description" content="This website page will tell you how many people found us.">
+    <script language="javascript" type="text/javascript" src="flot/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="flot/jquery.flot.js"></script>
+    <script language="javascript" type="text/javascript" src="flot/jquery.flot.pie.js"></script>
+    <script language="javascript" type="text/javascript" src="PlotPage.js"></script>
+    <script language="javascript" type="text/javascript" src="ContextMenu2.js"></script>
+    <title>Plot page</title>
+</head>
+<body>
+    <header id="top">
+        <h1> Nice stuff that's usually expensive but now cheap DIY! </h1>
+        <h3> Tired of fancy expensive stuff that you could easily make yourself? Try our tutorials! </h3>
+    </header>
+    <nav>
+        <a href="index.html" class="navLink">   News  </a>
+        <a href="content.html" class="navLink"> Content </a>
+        <a href="about.html" class="navLink">  About  </a>
+        <a href="contact.html" class="navLink">  Contact  </a>
+        <a href="KnowledgeBase.html" class="navLink"> Search </a>
+    </nav>
+
+    <nav id="contextMenuContainer">
+        <ul id="contextMenu">
+            <li></li>
+            <li id="makeBold">Make font Bold</li>
+            <li id="makeItalic">Make font Italic</li>
+            <li id="makeColorOne">Make font special color 1</li>
+            <li id="makeColorTwo">Make font special color 2</li>
+            <li id="makeColorThree">Make font special color 3</li>
+            <li id="makeColorFour">Make font special color 4</li>
+            <li id="makeNormal">Make font normal</li>
+        </ul>
+    </nav>
+
+    <section>
+        <h2>Plot</h2>
+        <p> You wanna contact us? here is a pie chart with the means and chances of finding us IRL </p>
+        <p id="piechart" style="width:500px; height:500px;"></p>
+        <p id="values"> eh </p>
+    </section>
+
+    <br>
+    <footer><a href="#top" class="bookMark">Go to the top of the page.</a>&copy; 2018 Nice stuff that's usually expensive but now cheap DIY! Company</footer>
+</body>
+
+</html>

@@ -1,0 +1,118 @@
+﻿body { background-color: cornsilk; }
+
+h1 {
+    color: crimson;
+    text-align: center;
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 48px;
+}
+
+h2 {
+    color: crimson;
+    text-align: center;
+    font-family: Merriweather;
+    font-size: 32px;
+}
+
+h3 {
+    color: dimgrey;
+    text-align: center;
+    font-style: italic;
+    font-size: 20px;
+    font-family: Merriweather;
+    font-weight: 200;
+}
+
+p {
+    text-align: center;
+    color: dimgrey;
+    font-family: Merriweather;
+    font-size: 18px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+
+a:link { color: crimson; }
+
+a:visited { color: dimgrey; }
+
+a:hover { color: lightseagreen; }
+
+.navLink, .navLink:visited {
+    background-color: crimson;
+    border: none;
+    border-radius: 6px;
+    color: beige !important;
+    padding: 15px 32px;
+    display: inline-block;
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 20px;
+    width: 150px;
+    text-decoration: none !important;
+}
+
+.navLink:hover {
+    color: beige;
+    background-color: lightseagreen;
+    border-bottom: none;
+}
+
+nav {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.bookMark {
+    color: dimgrey;
+    text-decoration-color: crimson;
+}
+
+.bookMark:visited, .bookMark:hover { text-decoration-color: lightseagreen;}
+
+.externLink { font-weight: 700;}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    height: 30%;
+    border-radius: 8px;
+}
+
+figcaption {
+    color: dimgrey;
+    font-style: italic;
+    font-size: 12px;
+    font-family: Merriweather;
+    font-weight: 200;
+    text-align: center;
+}
+
+footer {
+    color: dimgrey;
+    text-align: center;
+    font-style: italic;
+    font-size: 16px;
+    font-family: Merriweather;
+    font-weight: 200;
+}
+
+iframe {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table {
+    color: dimgrey;
+    font-family: Merriweather;
+    font-size: 18px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+table, th, td { border: 1px solid dimgrey;}
+th { font-style: italic; }
