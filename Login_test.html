@@ -11,20 +11,21 @@
     <meta name="description" content="login test">
     <script language="javascript" type="text/javascript" src="flot/jquery.js"></script>
     <script language="javascript" type="text/javascript" src="ContextMenu2.js"></script>
-    <title>Login test</title>
+    <script language="javascript" type="text/javascript" src="UserDatabaseText.js"></script>
+    <title>User page</title>
 </head>
 <body>
 
     <header id="top">
-        <h1> Nice stuff that's usually expensive but now cheap DIY! </h1>
-        <h3> Tired of fancy expensive stuff that you could easily make yourself? Try our tutorials! </h3>
+        <h1> User page </h1>
+        <h3> Register so you can buy stuff that you'll most definitely need! </h3>
     </header>
     <nav>
         <a href="index.html" class="navLink">   News  </a>
         <a href="content.html" class="navLink"> Content </a>
         <a href="about.html" class="navLink">  About  </a>
         <a href="contact.html" class="navLink">  Contact  </a>
-        <a href="KnowledgeBase.html" class="navLink"> Search </a>
+        <a href="knowledgeBase.html" class="navLink"> Knowledge Base </a>
     </nav>
 
     <nav id="contextMenuContainer">
@@ -41,18 +42,19 @@
     </nav>
 
     <section>
-    <form name="data" action="http://localhost:8081/app.js">
-        <p>Name: <input type="text" name="name" placeholder="Name" required></p>
+        <h2>Not yet a registered user? Register now! </h2>
+    <form name="data" action="http://localhost:8081/processForm.js">
+        <p>Username: <input type="text" name="login" placeholder="Username" required></p>
+        <p>Password: <input type="password" name="password" placeholder="Password" required></p>
+        <p>First name: <input type="text" name="firstName" placeholder="First name" required></p>
+        <p>Last name: <input type="text" name="lastName" placeholder="Last name" required></p>
         <p>Email: <input type="email" name="email" placeholder="Email"></p>
-        <p>
-            Gender: <select name="gender" required>
-                <option value=""></option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-            </select>
-        </p>
         <p><input type="submit" value="Submit" /></p>
     </form>
+        <h2>Already registered? Login here</h2>
+
+
+
     </section>
 
     <footer><a href="#top" class="bookMark">Go to the top of the page</a>&copy;2018 Nice stuff that's usually expensive but now cheap DIY! Company</footer>

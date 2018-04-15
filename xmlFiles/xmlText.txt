@@ -1,0 +1,2 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+'<rss version='2.0'><channel><baseLink>RSS Title</baseLink><content>jajajajajaj</content><contentLink>https://api.jquery.com/jQuery.parseXML/</contentLink></channel></rss>'

@@ -15,7 +15,7 @@
     $('.BaseLink').click(function () {
         $(this).children().toggle(400, "swing", function () { }, function () { });
     });
-}
+};
 
 //Function to parse small xml files into elements with the right classes. 
 function xmlToBase(xml)
