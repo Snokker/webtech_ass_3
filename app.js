@@ -1,12 +1,13 @@
-﻿var express = require('express');
-var http = require('http');
-var fs = require('fs');
-var url = require("url");
+﻿//https://www.youtube.com/watch?v=w-7RQ46RgxU&list=PL4cUxeGkcC9gcy9lrvMJ75z9maRw4byYp
 
+//express var
+var express = require('express');
 var app = express();
 
+//static files, give me some sweet css and images
 app.use(express.static(__dirname));
 
+//routing them html pages
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/Index.html');
 });
@@ -34,9 +35,6 @@ app.get('/DIY3.html', function (req, res) {
 app.get('/DIY4.html', function (req, res) {
     res.sendFile(__dirname + '/DIY4.html');
 });
-//app.get('/Login_test', function (req, res) {
-//    res.sendFile(__dirname + '/Login_test.html');
-//});
 app.get('/Plot.html', function (req, res) {
     res.sendFile(__dirname + '/Plot.html');
 });
@@ -44,25 +42,27 @@ app.get('/KnowledgeBase.html', function (req, res) {
     res.sendFile(__dirname + '/KnowledgeBase.html');
 });
 
+
+//DATABASE LETS GO
+var sqlite3 = require('sqlite3').verbose();
+var db = new sqlite3.Database('mydb.db');
+var check;
+db.serialize(function () {
+
+    db.run("CREATE TABLE if not exists user_info (info TEXT)");
+    var stmt = db.prepare("INSERT INTO user_info VALUES (?)");
+    for (var i = 0; i < 10; i++) {
+        stmt.run("Ipsum " + i);
+    }
+    stmt.finalize();
+
+    db.each("SELECT rowid AS id, info FROM user_info", function (err, row) {
+        console.log(row.id + ": " + row.info);
+    });
+});
+
+db.close();
+
+//listen pls to localhost:8081
 app.listen(8081);
-
-//var server = http.createServer(function (req, res) {
-//    console.log('request was made: ' + req.url);
-//    res.writeHead(200, { 'Content-Type': 'text/html' });
-//    var myReadStream = fs.createReadStream(__dirname + '/index.html', 'utf8');
-//    myReadStream.pipe(res);
-//}).listen(8081);
-
-//http.createServer(function (request, response) {
-
-//    var parsedUrl = url.parse(request.url, true);
-//    var queryAsObject = parsedUrl.query;
-//    var name = queryAsObject.name;
-//    var gender = queryAsObject.gender;
-//    var salution = (gender == "male") ? "Mr." : "Ms.";
-//    response.writeHead(200, { 'Content-Type': 'text/plain' });
-//    response.end('Dear' + salution + '' + name +
-//        ', thank you for submitting your contact info\n');
-//}).listen(8081);
-
 console.log('hoi');
