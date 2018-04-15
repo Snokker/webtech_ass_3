@@ -1,4 +1,5 @@
 ﻿//http://www.sqlitetutorial.net/sqlite-nodejs/
+//Testing insert query
 const sqlite3 = require('sqlite3').verbose();
 
 let db = new sqlite3.Database('./db/users.db', sqlite3.OPEN_READWRITE, (err) => {

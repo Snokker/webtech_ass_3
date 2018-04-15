@@ -49,6 +49,7 @@ function xmlToBase(xml)
     domSection.appendChild(baseLink);
 }
 
+//Top class
 class BaseLink {
     constructor(name, link, content) {
         this.name = name;
@@ -58,6 +59,7 @@ class BaseLink {
 
 }
 
+//Content of top class
 class BaseContent extends BaseLink {
     constructor(name, parent) {
         super(name);
@@ -65,6 +67,7 @@ class BaseContent extends BaseLink {
     }
 }
 
+//link in content of topclass
 class ContentLink extends BaseContent {
     constructor(name, parent, image)
     {

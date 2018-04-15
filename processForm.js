@@ -18,6 +18,7 @@ http.createServer(function (request, response) {
     var queryAsObject = parsedUrl.query;
     var login = queryAsObject.login;
     var password = queryAsObject.password;
+
     var firstName = queryAsObject.firstName;
     var lastName = queryAsObject.lastName;
     var email = queryAsObject.email;
@@ -68,6 +69,7 @@ http.createServer(function (request, response) {
 
 }).listen(8081);
 
+//seperate function for closing db, as this always has to execute last.
 function closeDB(db)
 {
     db.close((err) => {
