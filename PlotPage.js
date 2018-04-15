@@ -1,6 +1,8 @@
 ﻿//https://www.flotcharts.org/flot/examples/series-pie/index.html
 //http://www.pikemere.co.uk/blog/flot-how-to-create-pie-charts/
 
+//javascript for plot page
+
 var data = [
     { label: "randomly", data: 5.5, color: "#ffccff" },
     { label: "with a DIY boat (coming soon)", data: 19.01, color: "#cc99ff" },

@@ -1,4 +1,6 @@
-﻿//https://www.youtube.com/watch?v=w-7RQ46RgxU&list=PL4cUxeGkcC9gcy9lrvMJ75z9maRw4byYp
+﻿//app for routing html pages
+
+//https://www.youtube.com/watch?v=w-7RQ46RgxU&list=PL4cUxeGkcC9gcy9lrvMJ75z9maRw4byYp
 
 //express var
 var express = require('express');
@@ -62,6 +64,10 @@ db.serialize(function () {
 });
 
 db.close();
+
+app.get('/KnowledgeBase.html', function (req, res) {
+    res.sendFile(__dirname + '/KnowledgeBase.html');
+});
 
 //listen pls to localhost:8081
 app.listen(8081);

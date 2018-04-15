@@ -1,4 +1,6 @@
-﻿if (typeof jQuery != 'undefined') {
+﻿//code for knowledgebase
+
+if (typeof jQuery != 'undefined') {
     // jQuery is loaded => print the version
     alert('HAA');
     document.addEventListener('click', getNav(), false);

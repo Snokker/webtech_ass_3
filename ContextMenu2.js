@@ -1,4 +1,6 @@
-﻿$(document).ready(function () {
+﻿//right mouse button context menu
+
+$(document).ready(function () {
 
     //prevent normal contextmenu
     var doubleClicked = false;

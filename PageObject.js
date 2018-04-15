@@ -1,4 +1,6 @@
-﻿window.onload = function () {
+﻿//makes objects
+
+window.onload = function () {
     //Array of xmlfiles, if time left, put them in seperate files!
     var xmlFiles =
         ["<rss version='2.0'><channel><baseLink>Where to get all this amazing stuff?</baseLink><content>It's difficult sometimes to get good stuff, but of course we know everything about that. We're pros after all! Take a good look at our amaaaaazing webshop, we garantee at least something you need can be found there! </content><contentLink>Index.html</contentLink></channel></rss>",
