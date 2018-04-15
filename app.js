@@ -4,7 +4,13 @@ var fs = require('fs');
 var url = require("url");
 
 var app = express();
+
+app.use(express.static(__dirname));
+
 app.get('/', function (req, res) {
+    res.sendFile(__dirname + '/Index.html');
+});
+app.get('/Index.html', function (req, res) {
     res.sendFile(__dirname + '/Index.html');
 });
 app.get('/About.html', function (req, res) {
@@ -33,6 +39,9 @@ app.get('/DIY4.html', function (req, res) {
 //});
 app.get('/Plot.html', function (req, res) {
     res.sendFile(__dirname + '/Plot.html');
+});
+app.get('/KnowledgeBase.html', function (req, res) {
+    res.sendFile(__dirname + '/KnowledgeBase.html');
 });
 
 app.listen(8081);
