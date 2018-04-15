@@ -1,25 +1,71 @@
-﻿if (typeof jQuery != 'undefined') {
-    alert('HAA');
-};
+﻿window.onload = function () {
+    //Array of xmlfiles, if time left, put them in seperate files!
+    var xmlFiles =
+        ["<rss version='2.0'><channel><baseLink>Where to get all this amazing stuff?</baseLink><content>It's difficult sometimes to get good stuff, but of course we know everything about that. We're pros after all! Take a good look at our amaaaaazing webshop, we garantee at least something you need can be found there! </content><contentLink>Index.html</contentLink></channel></rss>",
+            "<rss version='2.0'><channel><baseLink>I don't know how to start? </baseLink><content>Take a look at our first tutorial, that'll get you started! </content><contentLink>Index.html</contentLink></channel></rss>",
+            "<rss version='2.0'><channel><baseLink>I have too much money and I don't know how to spend it???</baseLink><content>Shhhhhh, we'll take care of you, just click on the link</content><contentLink>Index.html</contentLink></channel></rss>",
+            "<rss version='2.0'><channel><baseLink>I want to be a beautiful unique snowflake, but how?!</baseLink><content> We know how it feels (to be beautiful unique snowflakes, that is), that's why we made a tutorial about it! </content><contentLink>Index.html</contentLink></channel></rss>"
+        ];
+    xmlFiles.forEach(function (element) {
+        xmlToBase(element);
+    });
 
-class Page {
-    constructor(name, link)
-    {
+    //Take every object with BaseLink class and add toggle function to children
+    $('.BaseLink').children().hide();
+    $('.BaseLink').click(function () {
+        $(this).children().toggle(400, "swing", function () { }, function () { });
+    });
+}
+
+//Function to parse small xml files into elements with the right classes. 
+function xmlToBase(xml)
+{
+    //Parsing xml document containing elements https://api.jquery.com/jQuery.parseXML/
+    var domSection = document.getElementById("knowledgeSection");
+    xmlDoc = $.parseXML(xml),
+    $xml = $(xmlDoc),
+    $title = $xml.find('baseLink');
+    $content = $xml.find('content');
+    $contentLink = $xml.find('contentLink');
+
+    //Title
+    var baseLink = document.createElement("h2");
+    baseLink.appendChild(document.createTextNode($title.text()));
+    baseLink.setAttribute("class", "BaseLink");
+    //Content
+    var baseContent = document.createElement("p");
+    baseContent.appendChild(document.createTextNode($content.text()));
+    baseContent.setAttribute("class", "BaseContent");
+    baseLink.appendChild(baseContent);
+    //Link
+    var contentLink = document.createElement("a");
+    contentLink.appendChild(document.createElement("LINK"));
+    contentLink.href = $contentLink.text();
+    contentLink.textContent = "\n" + "Go to original page";
+    contentLink.setAttribute("class", "ContentLink");
+    baseContent.appendChild(contentLink);
+
+    //append everything to the section in html
+    domSection.appendChild(baseLink);
+}
+
+class BaseLink {
+    constructor(name, link, content) {
         this.name = name;
-        this.talk = function () {
-            this.addEventListener("click", showChildren, false);
-        }
+        this.link = link;
+        this.content = content;
     }
 
 }
-class DIY extends Page {
+
+class BaseContent extends BaseLink {
     constructor(name, parent) {
         super(name);
         this.parent = parent;
     }
 }
 
-class DIYImage extends DIY {
+class ContentLink extends BaseContent {
     constructor(name, parent, image)
     {
         super(name);
@@ -27,51 +73,3 @@ class DIYImage extends DIY {
         this.image = image;
     }
 }
-
-function getNav(e)
-{
-    var x = e.clientX;
-    var y = e.clientY;
-    var p1 = document.getElementById("p1");
-    p1.innerHTML = "X-coord: " + x + " Y-coord: " + y;
-    e.target.innerHTML = "Target element: " + e.target.id;
-    var pages = [];
-    var pageObjects = [];
-    pages = document.getElementsByClassName("navLink");
-    for (var i = 0; i < pages.length; i++) {
-        var pageName = pages[i].getInnerHTML;
-        var pageLink = pages[i].getAttribute("href");
-        pageObjects[i] = new Page(pageName, pageLink);
-    }
-    document.addEventListener("load", showLinks(pages), false);
-}
-
-function showLinks(links)
-{
-    document.getElementById("main").innerHTML = "test";
-    //Does not work yet, unfortunately :(
-    for (var i = 0; i < links.length; i++)
-    {
-        document.getElementById("main").innerHTML += links[i].name + '/n';
-        document.getElementById("main").getAttribute("href") = links[i].link;
-    }
-    
-}
-
-function showCoords(e) {
-    var x = e.clientX;
-    var y = e.clientY;
-    var p1 = document.getElementById("p1");
-    p1.innerHTML = "X-coord: " + x + " Y-coord: " + y;
-    e.target.innerHTML = "Target element: " + e.target.id;
-
-}
-function registerEvents() {
-    var p2 = document.getElementById("p2");
-    var p3 = document.getElementById("p3");
-    p2.addEventListener("click", showCoords, false);
-    p3.addEventListener("click", getNav, false);
-
-}
-window.addEventListener("load", registerEvents, false);
-
